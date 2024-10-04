@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 export function CTASection() {
   return (
@@ -11,10 +12,12 @@ export function CTASection() {
         <p className="mx-auto max-w-[700px] text-sm sm:text-base md:text-lg text-purple-100 mb-8">
           Join thousands of satisfied travelers who have embraced the ease and security of booking with roomie.sol.
         </p>
+        <Link href='/rooms'>
         <Button className="bg-white text-purple-600 hover:bg-purple-100 transition-all duration-300 shadow-lg hover:shadow-xl text-base sm:text-lg py-4 sm:py-6 px-6 sm:px-10">
           Get Started Now
           <ChevronRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
         </Button>
+        </Link>
       </div>
     </section>
   )
