@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
 import { Wallet, Menu, X } from "lucide-react"
 import Link from "next/link"
 
@@ -26,9 +27,9 @@ export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
         <Link className="text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors" href="/rooms">
           Rooms
         </Link>
-        <Button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-          Connect Wallet
-        </Button>
+        <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <WalletMultiButton style={{borderRadius:'10px'}}  />
+        </span>
       </nav>
       <Button
         className="md:hidden"
