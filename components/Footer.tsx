@@ -1,5 +1,5 @@
-import { Wallet } from "lucide-react"
-import Link from "next/link"
+import { Wallet } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   return (
@@ -13,13 +13,22 @@ export function Footer() {
             </span>
           </div>
           <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <Link className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors" href="#">
+            <Link
+              className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              href="#"
+            >
               Terms of Service
             </Link>
-            <Link className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors" href="#">
+            <Link
+              className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              href="#"
+            >
               Privacy Policy
             </Link>
-            <Link className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors" href="#">
+            <Link
+              className="text-xs sm:text-sm hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+              href="#"
+            >
               FAQ
             </Link>
           </nav>
@@ -29,5 +38,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

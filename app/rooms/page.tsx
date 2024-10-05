@@ -1,11 +1,11 @@
-import RoomListing from "@/components/RoomList"
+import RoomListing from "@/components/RoomList";
 
 const Rooms = () => {
   return (
     <div>
-        <RoomListing/>
+      <RoomListing />
     </div>
-  )
-}
+  );
+};
 
 export default Rooms;

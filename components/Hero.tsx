@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search, Star } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search, Star } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -12,13 +12,21 @@ export function HeroSection() {
               Book Your Dream Stay with Crypto
             </h1>
             <p className="mx-auto max-w-[700px] text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300">
-              Experience the future of travel with roomie.sol. Secure, fast, and decentralized room bookings powered by Solana.
+              Experience the future of travel with roomie.sol. Secure, fast, and
+              decentralized room bookings powered by Solana.
             </p>
           </div>
           <div className="w-full max-w-md space-y-4">
             <form className="flex space-x-2 p-2 bg-white dark:bg-gray-800 rounded-full shadow-xl">
-              <Input className="flex-1 rounded-full border-none bg-transparent" placeholder="Where do you want to stay?" type="text" />
-              <Button type="submit" className="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all duration-300">
+              <Input
+                className="flex-1 rounded-full border-none bg-transparent"
+                placeholder="Where do you want to stay?"
+                type="text"
+              />
+              <Button
+                type="submit"
+                className="rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-700 hover:to-indigo-700 transition-all duration-300"
+              >
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Search</span>
               </Button>
@@ -37,5 +45,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

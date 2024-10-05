@@ -1,8 +1,6 @@
-
 # Roomie.sol
 
 A platform for booking rooms using crypto
-
 
 ## How to Contribute?
 
@@ -29,16 +27,19 @@ To clone the repository, go to forked repo and click on code and copy the repo l
 3. Install dependencies
 
 #### a) if not installed pnpm globally
+
 ```bash
   npm install -g pnpm
 ```
 
 Check version to know if installed
+
 ```bash
   pnpm --version
 ```
 
 then, install dependencies
+
 ```bash
   pnpm install
 ```
@@ -58,12 +59,14 @@ then, install dependencies
 6. After successfully contribution
 
 a. Stage and commit changes to the branch
+
 ```bash
   git add <all the files>
   git commit -m "first commit"
 ```
 
 b. Push the changes to the remote repository
+
 ```bash
   git push origin your-branch-name
 ```
@@ -71,15 +74,19 @@ b. Push the changes to the remote repository
 c. Merge the add-readme branch into main
 
 After pushing, you can create a pull request to merge the "your-branch" branch into main.
+
 ```bash
   git checkout main
   git pull origin main  # Ensure your local main is up to date
   git merge <your-branch-name>
 ```
+
 d. Push the merge to the main branch
+
 ```bash
   git push origin main
 ```
+
 7. Create a Pull Request in the forked repo:
 
 a. Go to https://github.com/Tufailahmed-Bargir/Roomie.sol
@@ -90,7 +97,6 @@ c. Select your branch.
 
 d. Create a Pull Request by adding the title as issue name and tag and adding a description to the PR.
 
-That’s it! You have successfully merged your contribution into the main branch. 
+That’s it! You have successfully merged your contribution into the main branch.
 
 Thanks a lot!!!
-

@@ -13,21 +13,17 @@ const handler = NextAuth({
 
   callbacks: {
     async signIn(params) {
-      if (
-        !params.user.email ||
-        !params.user.name ||
-        !params.user.image
-      ) {
+      if (!params.user.email || !params.user.name || !params.user.image) {
         return false;
       }
       const user = await prisma.user.findUnique({
-        where:{
-            email:params.user.email
-        }
-      })
+        where: {
+          email: params.user.email,
+        },
+      });
 
-      if(user){
-        return true
+      if (user) {
+        return true;
       }
 
       await prisma.user.create({
@@ -37,7 +33,7 @@ const handler = NextAuth({
           image: params.user.image,
         },
       });
-      return true
+      return true;
     },
   },
 });
