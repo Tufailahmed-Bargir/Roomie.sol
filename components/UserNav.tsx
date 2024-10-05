@@ -1,23 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Bell, LogOut, Menu, Search, User } from "lucide-react"
-import { signOut } from "next-auth/react"
+import { useState } from "react";
+import Link from "next/link";
+import { Bell, LogOut, Menu, Search, User } from "lucide-react";
+import { signOut } from "next-auth/react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 export default function Navbar() {
-  const [isSearchVisible, setIsSearchVisible] = useState(false)
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md">
@@ -33,16 +33,28 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="left" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col gap-4">
-                  <Link href="/" className="text-2xl font-semibold tracking-tight">
+                  <Link
+                    href="/"
+                    className="text-2xl font-semibold tracking-tight"
+                  >
                     Roomie.sol
                   </Link>
-                  <Link href="/explore" className="text-lg font-medium hover:text-purple-600 transition-colors">
+                  <Link
+                    href="/explore"
+                    className="text-lg font-medium hover:text-purple-600 transition-colors"
+                  >
                     Explore
                   </Link>
-                  <Link href="/bookings" className="text-lg font-medium hover:text-purple-600 transition-colors">
+                  <Link
+                    href="/bookings"
+                    className="text-lg font-medium hover:text-purple-600 transition-colors"
+                  >
                     My Bookings
                   </Link>
-                  <Link href="/favorites" className="text-lg font-medium hover:text-purple-600 transition-colors">
+                  <Link
+                    href="/favorites"
+                    className="text-lg font-medium hover:text-purple-600 transition-colors"
+                  >
                     Favorites
                   </Link>
                 </nav>
@@ -55,13 +67,22 @@ export default function Navbar() {
             </Link>
           </div>
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/explore" className="text-sm font-medium hover:text-purple-600 transition-colors">
+            <Link
+              href="/explore"
+              className="text-sm font-medium hover:text-purple-600 transition-colors"
+            >
               Explore
             </Link>
-            <Link href="/bookings" className="text-sm font-medium hover:text-purple-600 transition-colors">
+            <Link
+              href="/bookings"
+              className="text-sm font-medium hover:text-purple-600 transition-colors"
+            >
               My Bookings
             </Link>
-            <Link href="/favorites" className="text-sm font-medium hover:text-purple-600 transition-colors">
+            <Link
+              href="/favorites"
+              className="text-sm font-medium hover:text-purple-600 transition-colors"
+            >
               Favorites
             </Link>
           </nav>
@@ -97,14 +118,21 @@ export default function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
                 <DropdownMenuItem asChild>
-                  <Link href="/profile" className="w-full">Profile</Link>
+                  <Link href="/profile" className="w-full">
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/settings" className="w-full">Settings</Link>
+                  <Link href="/settings" className="w-full">
+                    Settings
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <button onClick={() => signOut()} className="w-full text-left flex items-center text-red-600 hover:text-red-700">
+                  <button
+                    onClick={() => signOut()}
+                    className="w-full text-left flex items-center text-red-600 hover:text-red-700"
+                  >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
                   </button>
@@ -129,5 +157,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

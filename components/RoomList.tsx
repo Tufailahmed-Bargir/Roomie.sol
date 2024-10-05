@@ -1,60 +1,62 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Image from 'next/image'
-import { Calendar, ChevronDown, MapPin, Star } from 'lucide-react'
+import React, { useState } from "react";
+import Image from "next/image";
+import { Calendar, ChevronDown, MapPin, Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import Navbar from './UserNav'
-import { FilterContent } from './FilterContent'
-import img from "@/app/rooms/img.png"
-
+} from "@/components/ui/collapsible";
+import Navbar from "./UserNav";
+import { FilterContent } from "./FilterContent";
+import img from "@/app/rooms/img.png";
 
 const events = [
   {
     id: 1,
     title: "Parker Guest House",
-    description: "Relaxed rooms in a refined guesthouse with free breakfast & afternoon wine, plus a genteel lounge",
+    description:
+      "Relaxed rooms in a refined guesthouse with free breakfast & afternoon wine, plus a genteel lounge",
     date: "9/4/2024",
     location: "520 Church St, San Francisco, CA 94114",
-    price: 150.00,
+    price: 150.0,
     rating: 4.8,
-    image: img
+    image: img,
   },
   {
     id: 2,
     title: "Seaside Resort",
-    description: "Luxurious beachfront resort with stunning ocean views, spa facilities, and gourmet dining options",
+    description:
+      "Luxurious beachfront resort with stunning ocean views, spa facilities, and gourmet dining options",
     date: "7/15/2024",
     location: "1234 Coastal Highway, Malibu, CA 90265",
-    price: 350.00,
+    price: 350.0,
     rating: 4.9,
-    image: img
+    image: img,
   },
   {
     id: 3,
     title: "Mountain Retreat Lodge",
-    description: "Cozy mountain lodge with rustic charm, offering hiking trails, ski-in/ski-out access, and a fireplace lounge",
+    description:
+      "Cozy mountain lodge with rustic charm, offering hiking trails, ski-in/ski-out access, and a fireplace lounge",
     date: "12/1/2024",
     location: "789 Pine Ridge Road, Aspen, CO 81611",
-    price: 280.00,
+    price: 280.0,
     rating: 4.7,
-    image: img
+    image: img,
   },
-]
+];
 
 export default function RoomListing() {
-  const [verifiedOnly, setVerifiedOnly] = useState(false)
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 5000 })
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [verifiedOnly, setVerifiedOnly] = useState(false);
+  const [priceRange, setPriceRange] = useState({ min: 0, max: 5000 });
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -70,9 +72,14 @@ export default function RoomListing() {
                 className="lg:hidden mb-4"
               >
                 <CollapsibleTrigger asChild>
-                  <Button variant="outline" className="flex justify-between w-full">
+                  <Button
+                    variant="outline"
+                    className="flex justify-between w-full"
+                  >
                     Filters
-                    <ChevronDown className={`h-4 w-4 transition-transform ${isFilterOpen ? "transform rotate-180" : ""}`} />
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform ${isFilterOpen ? "transform rotate-180" : ""}`}
+                    />
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="mt-4">
@@ -112,7 +119,12 @@ export default function RoomListing() {
                 <Card key={event.id} className="overflow-hidden">
                   <div className="flex flex-col md:flex-row">
                     <div className="relative w-full md:w-1/3 h-64 md:h-auto">
-                      <Image src={event.image} alt={event.title} layout="fill" objectFit="cover" />
+                      <Image
+                        src={event.image}
+                        alt={event.title}
+                        layout="fill"
+                        objectFit="cover"
+                      />
                     </div>
                     <CardContent className="flex-1 p-6 flex flex-col justify-between">
                       <div>
@@ -120,10 +132,14 @@ export default function RoomListing() {
                           <h2 className="text-2xl font-bold">{event.title}</h2>
                           <div className="flex items-center bg-purple-100 text-purple-800 rounded-full px-2 py-1">
                             <Star className="w-4 h-4 mr-1 fill-current" />
-                            <span className="text-sm font-semibold">{event.rating}</span>
+                            <span className="text-sm font-semibold">
+                              {event.rating}
+                            </span>
                           </div>
                         </div>
-                        <p className="text-gray-600 mb-4">{event.description}</p>
+                        <p className="text-gray-600 mb-4">
+                          {event.description}
+                        </p>
                         <div className="space-y-2 text-sm text-gray-600">
                           <p className="flex items-center">
                             <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
@@ -136,10 +152,17 @@ export default function RoomListing() {
                         </div>
                       </div>
                       <div className="flex items-center justify-between mt-6">
-                        <div className="text-2xl font-bold text-purple-600">${event.price.toFixed(2)} <span className="text-sm font-normal text-gray-600">per night</span></div>
+                        <div className="text-2xl font-bold text-purple-600">
+                          ${event.price.toFixed(2)}{" "}
+                          <span className="text-sm font-normal text-gray-600">
+                            per night
+                          </span>
+                        </div>
                         <div className="space-x-2">
                           <Button variant="outline">View Details</Button>
-                          <Button className="bg-purple-600 hover:bg-purple-700 text-white">Book Now</Button>
+                          <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+                            Book Now
+                          </Button>
                         </div>
                       </div>
                     </CardContent>
@@ -151,5 +174,5 @@ export default function RoomListing() {
         </div>
       </div>
     </div>
-  )
+  );
 }
