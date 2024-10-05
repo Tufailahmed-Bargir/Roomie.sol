@@ -80,6 +80,15 @@ d. Push the merge to the main branch
 ```bash
   git push origin main
 ```
+7. Create a Pull Request in the forked repo:
+
+a. Go to https://github.com/Tufailahmed-Bargir/Roomie.sol
+
+b. Go to Pull Requests, in the comparison of changes section.
+
+c. Select your branch.
+
+d. Create a Pull Request by adding the title as issue name and tag and adding a description to the PR.
 
 That’s it! You have successfully merged your contribution into the main branch. 
 
