@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Roomie.sol
 
-First, run the development server:
+A platform for booking rooms using crypto
+
+
+## How to Contribute?
+
+Follow these steps to set up and run the project locally:
+
+1. Fork the repository
+
+a) Fork the repository to your GitHub by creating a new fork.
+
+b) Clone the Repository:
+
+To clone the repository, go to forked repo and click on code and copy the repo link and enter the following command in your terminal.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/your-profile-name/Roomie.sol.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Go to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd dwellChain
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Install dependencies
 
-## Learn More
+#### a) if not installed pnpm globally
+```bash
+  npm install -g pnpm
+```
 
-To learn more about Next.js, take a look at the following resources:
+Check version to know if installed
+```bash
+  pnpm --version
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+then, install dependencies
+```bash
+  pnpm install
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Start the server
 
-## Deploy on Vercel
+```bash
+  pnpm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Create a branch with the branch name similar to issue name.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+  git checkout -b your-branch-name
+```
+
+6. After successfully contribution
+
+a. Stage and commit changes to the branch
+```bash
+  git add <all the files>
+  git commit -m "first commit"
+```
+
+b. Push the changes to the remote repository
+```bash
+  git push origin your-branch-name
+```
+
+c. Merge the add-readme branch into main
+
+After pushing, you can create a pull request to merge the "your-branch" branch into main.
+```bash
+  git checkout main
+  git pull origin main  # Ensure your local main is up to date
+  git merge <your-branch-name>
+```
+d. Push the merge to the main branch
+```bash
+  git push origin main
+```
+
+That’s it! You have successfully merged your contribution into the main branch. 
+
+Thanks a lot!!!
+
