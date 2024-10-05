@@ -21,7 +21,7 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent className="flex justify-center">
           <Button
-          onClick={()=>signIn()}
+          onClick={()=>signIn('google',{callbackUrl:'/rooms'})}
             className="w-full max-w-xs flex items-center justify-center space-x-2"
             variant="outline"
           >
