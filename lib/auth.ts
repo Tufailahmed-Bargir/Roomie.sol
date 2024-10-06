@@ -1,9 +1,8 @@
 import prisma from "@/lib/db";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { User } from "@prisma/client";
+import { JWT } from "next-auth/jwt";
 
-// Extend the built-in session types
 declare module "next-auth" {
   interface Session {
     user: {
@@ -13,6 +12,16 @@ declare module "next-auth" {
       image: string;
       role: string;
     };
+  }
+
+  interface User {
+    role?: string;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    role?: string;
   }
 }
 
@@ -25,45 +34,54 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      if (!user.email || !user.name || !user.image) {
+      if (!user.email || !user.name) {
         return false;
       }
+
+      const adminEmail = process.env.ADMIN_EMAIL;
+      const role = user.email === adminEmail ? "ADMIN" : "USER";
+
+      console.log("Signing in user:", user.email);
+      console.log("Assigned role:", role);
+
       const existingUser = await prisma.user.findUnique({
         where: { email: user.email },
       });
+
       if (existingUser) {
-        // Update the user's information if necessary
         await prisma.user.update({
           where: { email: user.email },
           data: {
             name: user.name,
-            image: user.image,
+            image: user.image ?? undefined,
+            role: role,
           },
         });
-        return true;
+      } else {
+        await prisma.user.create({
+          data: {
+            email: user.email,
+            name: user.name,
+            image: user.image ?? undefined,
+            role: role,
+          },
+        });
       }
-      // Create a new user if they don't exist
-      await prisma.user.create({
-        data: {
-          email: user.email,
-          name: user.name,
-          image: user.image,
-          role: "USER", // Default role for new users
-        },
-      });
+
+      user.role = role;
       return true;
     },
-    async session({ session, user }) {
-      // Add role to the session
-      const dbUser = await prisma.user.findUnique({
-        where: { email: session.user.email },
-      });
-      if (dbUser) {
-        session.user.role = dbUser.role;
-        session.user.id = dbUser.id;
+    async jwt({ token, user }) {
+      if (user) {
+        token.role = user.role;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token && typeof token.role === "string") {
+        session.user.role = token.role;
       }
       return session;
     },
   },
 };
-

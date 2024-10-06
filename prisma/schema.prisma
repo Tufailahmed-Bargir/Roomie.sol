@@ -41,7 +41,7 @@ model Hotel {
   rooms               HotelRoom[]
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
-pricePerNight   Int
+pricePerNight   String
 ownerEmail      String
 }
 
