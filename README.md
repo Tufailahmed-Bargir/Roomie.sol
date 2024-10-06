@@ -1,5 +1,3 @@
----
-
 # Roomie.sol Documentation
 
 ## About Roomie.sol
