@@ -39,7 +39,7 @@ export default function CreateHotelPage() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/admin/create', formData);
+      const response = await axios.post('/api/admin/create/hotels', formData);
       if (response.status === 201) {
         router.push('/rooms');
       }
