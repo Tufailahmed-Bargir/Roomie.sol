@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui"
-import { Wallet, Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { Wallet, Menu, X } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link"
+import Link from "next/link";
 
 interface HeaderProps {
-  isMenuOpen: boolean
-  toggleMenu: () => void
+  isMenuOpen: boolean;
+  toggleMenu: () => void;
 }
 
 export function Header({ isMenuOpen, toggleMenu }: HeaderProps) {
-    const session = useSession();
+  const session = useSession();
   return (
     <header className="px-4 lg:px-6 h-20 flex items-center justify-between backdrop-blur-md bg-white/30 dark:bg-gray-800/30 sticky top-0 z-50">
       <Link className="flex items-center justify-center" href="#">

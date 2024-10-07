@@ -1,9 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -19,26 +16,43 @@ model User {
   email      String   @unique
   image      String?
   solAddress String?
-  isVerified Boolean?
+  isVerified Boolean?  @default(false)
+  role       Role     @default(USER)
   hotels     Hotel[]
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt @default( now())
+}
+
+enum Role {
+  USER
+  ADMIN
+  HOTEL_OWNER
 }
 
 model Hotel {
   id                  String     @id @default(cuid())
   name                String
+  description         String
+  image               String
   location            String
   MerchantSolAddress  String
   userId              String
   user                User       @relation(fields: [userId], references: [id])
   rooms               HotelRoom[]
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+pricePerNight   String
+ownerEmail      String
 }
 
 model Room {
-  id     String     @id @default(cuid())
-  number Int
-  Floor  Int
-  Size   Int
-  hotels HotelRoom[]
+  id        String     @id @default(cuid())
+  number    Int
+  Floor     Int
+  Size      Int
+  hotels    HotelRoom[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt @default(now())
 }
 
 model HotelRoom {
@@ -48,6 +62,8 @@ model HotelRoom {
   hotel     Hotel    @relation(fields: [hotelId], references: [id])
   room      Room     @relation(fields: [roomId], references: [id])
   checkIn   DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@unique([hotelId, roomId])
 }

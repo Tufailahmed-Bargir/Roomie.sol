@@ -1,12 +1,11 @@
-import LoginPage from "@/components/LoginForm"
-
+import LoginPage from "@/components/LoginForm";
 
 const page = () => {
   return (
     <div>
-    <LoginPage/>
+      <LoginPage />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
