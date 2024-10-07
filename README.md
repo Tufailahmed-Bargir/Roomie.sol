@@ -1,6 +1,6 @@
 # Roomie.sol Documentation
 
-## About Roomie.sol
+## About Roomie.sol 
 
 **Roomie.sol** is a platform that provides a seamless and secure room booking service powered by cryptocurrency on the **Solana blockchain**. By leveraging Solana's fast, scalable, and low-cost transactions, Roomie.sol offers users a decentralized and transparent way to book accommodations while benefiting from the security and privacy of crypto payments.
 
